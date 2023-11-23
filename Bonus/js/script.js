@@ -1,5 +1,6 @@
 // dichiaro le costanti
 const items = document.querySelectorAll(".item");
+const thumbnails = document.querySelectorAll(".thumbnail");
 const totalItems = items.length;
 
 // imposto l'indice da dover partire
