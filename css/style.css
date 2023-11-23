@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.active{
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.item img {
+    height: 334px;
+    object-fit: cover; 
+    position: relative;
+}
+
+
+.next {
+  
+    bottom: 10px;
+}
+
+.prev {
+    
+    top: 10px;
+}
+
+
+.next,.prev{
+    background-color: wheat;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+}
