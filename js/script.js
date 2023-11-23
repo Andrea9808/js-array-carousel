@@ -1,54 +1,77 @@
 
 
-// Dichiaro le costanti
-const items = document.querySelectorAll(".item");
-const totalItems = items.length;
+//dichiaro le costanti
+const items = document.getElementsByClassName("item");
 
-// Imposto l'indice da dover partire
+//imposto l'indice da dover partire
 let activeItem = 0;
 
-// Navigazione
 
-// Prendo in considerazione il bottone next e prev
+//navigazione
+
+//prendo in considerazione il bottone next e prev
 const next = document.querySelector(".next");
 const prev = document.querySelector(".prev");
 
-// Al click del bottone "next"
-next.addEventListener("click", function () {
-    // Nascondiamo l'elemento attivo corrente
-    items[activeItem].classList.remove("active");
-    items[activeItem].classList.add("hidden");
+//al click del bottone "next"
+next.addEventListener("click", function (){
 
-    // Incremento dell'indice dell'elemento con modulo per il ciclo infinito
-    activeItem = (activeItem + 1) % totalItems;
+    if (activeItem < items.length - 1){
 
-    // Mostriamo l'elemento successivo
-    items[activeItem].classList.add("active");
-    items[activeItem].classList.remove("hidden");
-});
+        //togliamo la classe active
+        items[activeItem].classList.remove("active");
+        items[activeItem].classList.add("hidden");
+
+        //incremento dell'indice dell'elemento
+        activeItem++
+
+        //aggiungiamo la classe active all'elemento successivo
+        items[activeItem].classList.add("active");
+        items[activeItem].classList.remove("hidden");
 
 
+        if(activeItem === items.length - 1){
 
+            //arrivati all'ultimo elemento
+            next.classList.add("hidden")
 
-// Al click del bottone "prev"
-prev.addEventListener("click", function () {
-    // Nascondiamo l'elemento attivo corrente
-    items[activeItem].classList.remove("active");
-    items[activeItem].classList.add("hidden");
+        }
 
-    // Decremento dell'indice dell'elemento con modulo per il ciclo infinito
-    activeItem = (activeItem - 1 + totalItems) % totalItems;
-
-    // Mostriamo l'elemento precedente
-    items[activeItem].classList.add("active");
-    items[activeItem].classList.remove("hidden");
-});
+    }
+})
 
 
 
 
+// al click del bottone "prev"
+prev.addEventListener("click", function (){
+
+    if (activeItem > 0){
+
+        //togliamo la classe active
+        items[activeItem].classList.remove("active");
+        items[activeItem].classList.add("hidden");
+
+        //decremento dell'indice dell'elemento
+        activeItem--
+
+        //aggiungiamo la classe active all'elemento precedente
+        items[activeItem].classList.add("active");
+        items[activeItem].classList.remove("hidden");
 
 
+        if(activeItem === 0){
+
+            //arrivati all'ultimo elemento
+            next.classList.add("active");
+
+        }
+
+        next.classList.remove("hidden");
+
+    }
+
+})
 
 
 
